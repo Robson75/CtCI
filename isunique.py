@@ -8,6 +8,18 @@ def is_unique(s):
     return True
 
 
+def is_unique_2(s):
+    table = [0] * (2**8)
+
+    for c in s:
+        code = ord(c)
+        if table[code] == 1:
+            return False
+        else:
+            table[code] = 1
+    return True
+
+
 class IsUnique:
 
     def __init__(self):
@@ -17,6 +29,6 @@ class IsUnique:
 if __name__ == '__main__':
     isUnique = IsUnique()
 
-    test_string = "sgj*"
+    test_string = "sgd  j*"
 
-    print(is_unique(test_string))
+    print(is_unique_2(test_string))
