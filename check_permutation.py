@@ -8,7 +8,7 @@ def check_permutation(s1, s2):
     if len(s1) != len(s2):
         return False
     else:
-        table = [0] * (2 ** 8)
+        table = [0] * (2 ** 16)
         for c in s1:
             code = ord(c)
             table[code] += 1
@@ -21,11 +21,11 @@ def check_permutation(s1, s2):
 
 if __name__ == '__main__':
     checkPermutation = CheckPermutation()
-    test_string1 = "test string"
-    test_string2 = "another test string"
+    test_string1 = "人美过"
+    test_string2 = "美国人"
     test_string3 = "string test"
     test_string4 = "more string"
 
-    is_permutation = check_permutation(test_string1, test_string4)
+    is_permutation = check_permutation(test_string1, test_string2)
 
     print(is_permutation)
