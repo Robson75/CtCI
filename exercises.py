@@ -53,12 +53,37 @@ def one_away(string1, string2):
     return False
 
 
+def string_compression(in_string):
+    char_old = in_string[0]
+    count = 1
+    compression_list = [str(count) + char_old]
+    list_index = 0
+    for char in in_string[1:]:
+        if char == char_old:
+            count += 1
+            compression_list[list_index] = str(count) + char_old
+        else:
+            char_old = char
+            count = 1
+            compression_list.append(str(count) + char_old)
+            list_index += 1
+    compressed_string = ""
+    for i in range(len(compression_list)):
+        compressed_string += compression_list[i]
+    if len(compressed_string) < len(in_string):
+        return compressed_string
+    else:
+        return in_string
+
+
 if __name__ == '__main__':
     my_exercises = Exercises
     test_string = "I am a test string"
     palindrome_test = "I  mi"
     one_away_test_1 = "hello"
     one_away_test_2 = "heldu"
+    string_compression_test = "helloteeeeeeeeeeeest"
     # print(urlify.urlify(test_string))
     # print(palindrome_permutation(palindrome_test))
-    print(one_away(one_away_test_1, one_away_test_2))
+    # print(one_away(one_away_test_1, one_away_test_2))
+    print(string_compression(string_compression_test))
