@@ -76,6 +76,24 @@ def string_compression(in_string):
         return in_string
 
 
+def rotate_matrix(in_matrix):
+    # define an example matrix
+    columns = 10
+    rows = 10
+    in_matrix = [[(c + 1) * (r + 1) for c in range(columns)] for r in range(rows)]
+    for row in range(len(in_matrix)):
+        print(in_matrix[row])
+
+    for c in range(columns):
+        for r in range(rows):
+            temp_value = in_matrix[c][r]
+            # 90 degree forward rotation
+            in_matrix[c][r] = in_matrix[rows - 1 - c][c]  # TODO this is wrong
+    for row in range(len(in_matrix)):
+        print(in_matrix[row])
+    return in_matrix
+
+
 if __name__ == '__main__':
     my_exercises = Exercises
     test_string = "I am a test string"
@@ -83,7 +101,9 @@ if __name__ == '__main__':
     one_away_test_1 = "hello"
     one_away_test_2 = "heldu"
     string_compression_test = "helloteeeeeeeeeeeest"
+    rotate_matrix_test = []
     # print(urlify.urlify(test_string))
     # print(palindrome_permutation(palindrome_test))
     # print(one_away(one_away_test_1, one_away_test_2))
-    print(string_compression(string_compression_test))
+    # print(string_compression(string_compression_test))
+    rotate_matrix(0)
