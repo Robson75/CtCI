@@ -87,7 +87,8 @@ def rotate_matrix(in_matrix):
     for c in range(int(columns/2)):
         for r in range(c, rows - c - 1):
             temp_value = in_matrix[c][r]
-            # 90 degree backward (why backward? something is wrong with this code) rotation
+            # 90 degree forward rotation
+            # 4 values shift place each round
             new_c, new_r = compute_shift(c, r, columns)
             in_matrix[c][r] = in_matrix[new_c][new_r]
             new2_c, new2_r = compute_shift(new_c, new_r, columns)
@@ -101,8 +102,8 @@ def rotate_matrix(in_matrix):
 
 
 def compute_shift(x, y, n):
-    new_x = y
-    new_y = n - x - 1
+    new_x = n - y - 1
+    new_y = x
     # print(new_x, new_y)
     return new_x, new_y
 
