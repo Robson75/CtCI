@@ -1,4 +1,5 @@
 import urlify
+import random
 
 
 class Exercises:
@@ -76,19 +77,22 @@ def string_compression(in_string):
         return in_string
 
 
+def create_random_matrix(columns, rows):
+    return [[random.randrange(100) for c in range(columns)] for r in range(rows)]
+
+
 def rotate_matrix(in_matrix):
-    # define an example matrix
-    columns = 5
-    rows = 5
-    in_matrix = [[(c + 1) * (r + 1) for c in range(columns)] for r in range(rows)]
+    rows = len(in_matrix)
+    columns = len(in_matrix[0])
     for row in range(len(in_matrix)):
         print(in_matrix[row])
 
+    print()
     for c in range(int(columns/2)):
         for r in range(c, rows - c - 1):
-            temp_value = in_matrix[c][r]
             # 90 degree forward rotation
             # 4 values shift place each round
+            temp_value = in_matrix[c][r]
             new_c, new_r = compute_shift(c, r, columns)
             in_matrix[c][r] = in_matrix[new_c][new_r]
             new2_c, new2_r = compute_shift(new_c, new_r, columns)
@@ -96,6 +100,7 @@ def rotate_matrix(in_matrix):
             new3_c, new3_r = compute_shift(new2_c, new2_r, columns)
             in_matrix[new2_c][new2_r] = in_matrix[new3_c][new3_r]
             in_matrix[new3_c][new3_r] = temp_value
+
     for row in range(len(in_matrix)):
         print(in_matrix[row])
     return in_matrix
@@ -115,9 +120,9 @@ if __name__ == '__main__':
     one_away_test_1 = "hello"
     one_away_test_2 = "heldu"
     string_compression_test = "helloteeeeeeeeeeeest"
-    rotate_matrix_test = []
+    rotate_matrix_test = create_random_matrix(4, 4)
     # print(urlify.urlify(test_string))
     # print(palindrome_permutation(palindrome_test))
     # print(one_away(one_away_test_1, one_away_test_2))
     # print(string_compression(string_compression_test))
-    rotate_matrix(0)
+    rotate_matrix(rotate_matrix_test)
