@@ -20,3 +20,12 @@ def test_3_x_3_matrix():
     assert exercises.rotate_matrix(test_matrix) == [[7, 4, 1],
                                                     [8, 5, 2],
                                                     [9, 6, 3]]
+
+
+def test_zero_matrix():
+    test_matrix = [[1, 0, 3],
+                   [4, 5, 6],
+                   [0, 0, 9]]
+    assert exercises.zero_matrix(test_matrix) == [[0, 0, 0],
+                                                  [0, 0, 6],
+                                                  [0, 0, 0]]

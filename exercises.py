@@ -1,5 +1,6 @@
 import urlify
 import random
+import numpy
 
 
 class Exercises:
@@ -78,7 +79,7 @@ def string_compression(in_string):
 
 
 def create_random_matrix(columns, rows):
-    return [[random.randrange(100) for c in range(columns)] for r in range(rows)]
+    return [[random.randrange(10) for c in range(columns)] for r in range(rows)]
 
 
 def rotate_matrix(in_matrix):
@@ -113,6 +114,26 @@ def compute_shift(x, y, n):
     return new_x, new_y
 
 
+def zero_matrix(matrix):
+    rows = len(matrix)
+    columns = len(matrix[0])
+    # create two sets to keep all rows and columns that will be put to zero
+    zero_rows = set()
+    zero_columns = set()
+    for i in range(rows):
+        for j in range(columns):
+            if matrix[i][j] == 0:
+                zero_columns.add(i)
+                zero_rows.add(j)
+    for i in zero_columns:
+        for j in range(rows):
+            matrix[i][j] = 0
+    for j in zero_rows:
+        for i in range(columns):
+            matrix[i][j] = 0
+    return matrix
+
+
 if __name__ == '__main__':
     my_exercises = Exercises
     test_string = "I am a test string"
@@ -125,4 +146,10 @@ if __name__ == '__main__':
     # print(palindrome_permutation(palindrome_test))
     # print(one_away(one_away_test_1, one_away_test_2))
     # print(string_compression(string_compression_test))
-    rotate_matrix(rotate_matrix_test)
+    # rotate_matrix(rotate_matrix_test)
+    in_matrix = create_random_matrix(4, 4)
+    print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in in_matrix]))
+    print()
+    zero_put_matrix = zero_matrix(in_matrix)
+    # print(zero_put_matrix)
+    print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in zero_put_matrix]))
