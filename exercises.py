@@ -134,6 +134,18 @@ def zero_matrix(matrix):
     return matrix
 
 
+def is_rotation(s1, s2):
+    if len(s1) != len(s2):
+        return False
+    for i, char in enumerate(s2):
+        if char == s1[0]:
+            s2_rotated = s2[i:] + s2[:i]
+            # print(s2_rotated)
+            if s2_rotated == s1:
+                return True
+    return False
+
+
 if __name__ == '__main__':
     my_exercises = Exercises
     test_string = "I am a test string"
@@ -148,8 +160,12 @@ if __name__ == '__main__':
     # print(string_compression(string_compression_test))
     # rotate_matrix(rotate_matrix_test)
     in_matrix = create_random_matrix(4, 4)
-    print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in in_matrix]))
-    print()
+    # print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in in_matrix]))
+    # print()
     zero_put_matrix = zero_matrix(in_matrix)
     # print(zero_put_matrix)
-    print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in zero_put_matrix]))
+    # print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in zero_put_matrix]))
+    rotate_string_test1 = "waterball"
+    rotate_string_test2 = "erballwat"
+    print(is_rotation(rotate_string_test1, rotate_string_test2))
+
