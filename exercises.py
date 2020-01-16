@@ -146,6 +146,14 @@ def is_rotation(s1, s2):
     return False
 
 
+def is_rotation2(s1, s2):
+    if len(s1) != len(s2):
+        return False
+    if s2 in (s1 + s1):
+        return True
+    return False
+
+
 if __name__ == '__main__':
     my_exercises = Exercises
     test_string = "I am a test string"
@@ -167,5 +175,8 @@ if __name__ == '__main__':
     # print('\n'.join(['\t'.join([str(cell) for cell in row]) for row in zero_put_matrix]))
     rotate_string_test1 = "waterball"
     rotate_string_test2 = "erballwat"
-    print(is_rotation(rotate_string_test1, rotate_string_test2))
+    print(is_rotation2(rotate_string_test1, rotate_string_test2))
+
+    import timeit
+    print(timeit.timeit("is_rotation", setup="from __main__ import is_rotation", number=1000))
 
