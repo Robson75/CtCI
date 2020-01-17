@@ -9,6 +9,7 @@ class Exercises:
 
 
 def palindrome_permutation(in_string):
+    """Check if a string could be permuted into a palindrome."""
     s = in_string.replace(' ', '').lower()
     print(s)
     letters = {}
@@ -30,6 +31,7 @@ def palindrome_permutation(in_string):
 
 
 def one_away(string1, string2):
+    """Check if two strings differ buy maximum 1 character."""
     l1 = len(string1)
     l2 = len(string2)
     l_diff = l1 - l2
@@ -79,10 +81,12 @@ def string_compression(in_string):
 
 
 def create_random_matrix(columns, rows):
+    """Create and return a m x n matrix filled with random values."""
     return [[random.randrange(10) for c in range(columns)] for r in range(rows)]
 
 
 def rotate_matrix(in_matrix):
+    """Rotate a n x n matrix clockwise 90 degrees."""
     rows = len(in_matrix)
     columns = len(in_matrix[0])
     for row in range(len(in_matrix)):
@@ -115,6 +119,7 @@ def compute_shift(x, y, n):
 
 
 def zero_matrix(matrix):
+    """Put all values in any row and column that has a zero in it to zero."""
     rows = len(matrix)
     columns = len(matrix[0])
     # create two sets to keep all rows and columns that will be put to zero
@@ -157,13 +162,13 @@ def is_rotation2(s1, s2):
 if __name__ == '__main__':
     my_exercises = Exercises
     test_string = "I am a test string"
-    palindrome_test = "I  mi"
+    palindrome_test = "I dd mi"
     one_away_test_1 = "hello"
     one_away_test_2 = "heldu"
     string_compression_test = "helloteeeeeeeeeeeest"
     rotate_matrix_test = create_random_matrix(4, 4)
     # print(urlify.urlify(test_string))
-    # print(palindrome_permutation(palindrome_test))
+    print(palindrome_permutation(palindrome_test))
     # print(one_away(one_away_test_1, one_away_test_2))
     # print(string_compression(string_compression_test))
     # rotate_matrix(rotate_matrix_test)
