@@ -163,7 +163,7 @@ if __name__ == '__main__':
     my_exercises = Exercises
     test_string = "I am a test string"
     palindrome_test = "I dd mi"
-    one_away_test_1 = "hello"
+    one_away_test_1 = "helllo"
     one_away_test_2 = "heldu"
     string_compression_test = "helloteeeeeeeeeeeest"
     rotate_matrix_test = create_random_matrix(4, 4)
